@@ -1,2 +1,235 @@
-The Best Siblings
-I dont like it
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המשפחה שלי - אלעד ורוני</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        header {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .children {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 40px;
+        }
+        .child {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin: 20px;
+            padding: 30px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .child:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .child::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            animation: rainbow 3s linear infinite;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .avatar.female {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+        }
+        .freckles {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #8B4513;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .freckle1 { top: 40px; left: 50px; }
+        .freckle2 { top: 60px; right: 40px; }
+        .freckle3 { bottom: 50px; left: 60px; }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        h2 {
+            margin: 0 0 10px;
+            color: #333;
+            font-size: 2em;
+        }
+        .info {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .age-bar {
+            width: 100%;
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .age-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        .facts {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .fact {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4ecdc4;
+            opacity: 0;
+            animation: slideIn 0.5s ease forwards;
+        }
+        .fact:nth-child(1) { animation-delay: 0.5s; }
+        .fact:nth-child(2) { animation-delay: 1s; }
+        .fact:nth-child(3) { animation-delay: 1.5s; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>המשפחה שלי</h1>
+            <p>אתר טכנולוגי וחדשני המציג את הילדים שלי</p>
+        </header>
+        <div class="children">
+            <div class="child">
+                <div class="avatar">
+                    👦
+                    <div class="freckles freckle1"></div>
+                    <div class="freckles freckle2"></div>
+                    <div class="freckles freckle3"></div>
+                </div>
+                <h2>אלעד</h2>
+                <div class="info">גיל: 20</div>
+                <div class="info">מגדר: זכר</div>
+                <div class="age-bar">
+                    <div class="age-fill" style="width: 100%;"></div>
+                </div>
+                <div class="facts">
+                    <div class="fact">אלעד הוא בן 20 עם נמשים מקסימים</div>
+                    <div class="fact">הוא אוהב טכנולוגיה ומחשבים</div>
+                    <div class="fact">תמיד מחייך ומביא שמחה למשפחה</div>
+                </div>
+            </div>
+            <div class="child">
+                <div class="avatar female">
+                    👧
+                    <div class="freckles freckle1"></div>
+                    <div class="freckles freckle2"></div>
+                    <div class="freckles freckle3"></div>
+                </div>
+                <h2>רוני</h2>
+                <div class="info">גיל: 9</div>
+                <div class="info">מגדר: נקבה</div>
+                <div class="age-bar">
+                    <div class="age-fill" style="width: 45%;"></div>
+                </div>
+                <div class="facts">
+                    <div class="fact">רוני היא בת 9 עם נמשים חמודים</div>
+                    <div class="fact">היא אוהבת לצייר ולשחק</div>
+                    <div class="fact">תמיד מלאה באנרגיה ויצירתיות</div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>נוצר באהבה למשפחה שלי © 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animation for age bars on load
+        window.addEventListener('load', function() {
+            const ageFills = document.querySelectorAll('.age-fill');
+            ageFills.forEach(fill => {
+                fill.style.width = '0%';
+                setTimeout(() => {
+                    fill.style.width = fill.getAttribute('style').split(':')[1].trim();
+                }, 500);
+            });
+        });
+
+        // Add some interactivity
+        document.querySelectorAll('.child').forEach(child => {
+            child.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+</html>
